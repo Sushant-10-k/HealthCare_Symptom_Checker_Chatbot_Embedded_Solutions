@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Healthcare Symptom Checker</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="app-title">
+        <div>
+          <p class="eyebrow">Symptom Checker</p>
+          <h1 id="app-title">Healthcare Assistant</h1>
+          <p class="summary">
+            Enter symptoms below to get a quick preliminary response from the API.
+          </p>
+        </div>
+        <div class="status" id="api-status">Checking API</div>
+      </section>
+
+      <section class="checker" aria-label="Symptom checker form">
+        <form id="symptom-form">
+          <label for="symptoms">Symptoms</label>
+          <textarea
+            id="symptoms"
+            name="symptoms"
+            rows="7"
+            placeholder="Example: fever, sore throat, headache"
+            required
+          ></textarea>
+
+          <div class="actions">
+            <button type="button" class="secondary" id="clear-button">Clear</button>
+            <button type="submit" id="submit-button">Check Symptoms</button>
+          </div>
+        </form>
+
+        <aside class="result-panel" aria-live="polite">
+          <p class="panel-label">Result</p>
+          <div id="result" class="empty-state">
+            Your result will appear here after you submit symptoms.
+          </div>
+        </aside>
+      </section>
+
+      <p class="disclaimer">
+        This tool is for informational support only and does not replace medical advice from a qualified clinician.
+      </p>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
