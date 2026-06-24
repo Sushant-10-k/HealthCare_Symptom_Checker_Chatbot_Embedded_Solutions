@@ -14,13 +14,22 @@ function parseSymptoms(value) {
 
 function renderResult(data) {
   const symptoms = data.input_symptoms || [];
+  const answer = data.answer || data.predicted_disease || "Consult a doctor";
   result.className = "";
   result.innerHTML = `
-    <h2 class="result-title">${data.predicted_disease || "Consult a doctor"}</h2>
+    <h2 class="result-title">${escapeHtml(answer)}</h2>
     <p>Submitted symptoms:</p>
     <ul class="symptom-list">
       ${symptoms.map((symptom) => `<li>${escapeHtml(symptom)}</li>`).join("")}
     </ul>
+    ${data.source_excerpts?.length ? `
+      <div class="sources">
+        <p>Source excerpts:</p>
+        <ul class="source-list">
+          ${data.source_excerpts.map((excerpt) => `<li>${escapeHtml(excerpt)}</li>`).join("")}
+        </ul>
+      </div>
+    ` : ""}
   `;
 }
 

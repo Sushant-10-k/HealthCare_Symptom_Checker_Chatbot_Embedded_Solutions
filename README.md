@@ -84,7 +84,31 @@ An intelligent healthcare symptom checker chatbot built using **Streamlit**, **L
    streamlit run medibot.py
    ```
 
-## 💻 Usage
+## � Deploy with Docker
+
+The repository includes a Dockerfile and `docker-compose.yml` for production-like deployment.
+
+1. Build the container image:
+   ```bash
+   docker compose build
+   ```
+
+2. Start the app:
+   ```bash
+   docker compose up
+   ```
+
+3. Open the service in your browser:
+   - `http://localhost:8000`
+
+4. Verify the API is healthy:
+   ```bash
+   curl http://127.0.0.1:8000/health
+   ```
+
+> The compose file mounts your local `vectorstore` and `data` directories into the container. This preserves the RAG knowledge base for both local and containerized runs.
+
+## �💻 Usage
 
 ### Web Interface (Recommended)
 
